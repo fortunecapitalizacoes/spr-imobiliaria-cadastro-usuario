@@ -1,0 +1,27 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+  branches:
+    include:
+    - develop
+
+
+pool:
+  vmImage: ubuntu-latest
+
+resources:
+  repositories:
+    - repository:  DevopsTemplates
+      type: git
+      name: DEVOPS/templates
+      ref: 'master'
+      endpoint: repos-sc
+
+variables:
+- group: PIPELINE
+
+stages:
+- template: pipelines/springboot.yml@DevopsTemplates  

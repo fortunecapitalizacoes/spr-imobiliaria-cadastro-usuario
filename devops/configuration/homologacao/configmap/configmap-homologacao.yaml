@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ptg-nominacao-configmap
+  namespace: ptg
+data:
+  NODE_NAME: AKS
+  PTG_NAMESPACE: "ptg-hml"
+  PTG_DATASOURCE_URL: "jdbc:sqlserver://ptghml.database.windows.net:1433;database=ptg_nominacao;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"  
+  PTG_NOMINACAO_JMS_CONNECTION_STRING: "Endpoint=sb://ptg-hml.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=${PTG_NOMINACAO_JMS_CONNECTION_PASSWORD}"
+  PTG_NOMINACAO_SERVER_PORT: "8080"
+  PTG_NOMINACAO_GRPC_SERVER_PORT: "9090"  
+  PTG_NOMINACAO_GRPC_HOST: "ptg-nominacao-v2-srv:90"
+  PTG_NOMINACAO_ACL_GRPC_HOST: "ptg-nominacao-v2-acl-srv:90"
+  PTG_NOMINACAO_GRPC_SERVER_HOST: "ptg-nominacao-v2-acl-srv:90"
+  WEBHOOK: "https://spassuti.webhook.office.com/webhookb2/a6b583c6-1e31-4c31-871d-2d50bb8a0d83@f383ec6e-6701-4c8b-96ee-6dcde029a539/IncomingWebhook/01eff266bec54c46ac02cced917024b4/a5036af8-fb44-49e2-be85-a6a7679c94cc/V2yjsS3Wc71UBHG-yyWmmcfkVAcDxmN_nUkDKSexgdXTg1"

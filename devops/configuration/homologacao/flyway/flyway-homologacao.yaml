@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ptg-flyway-operacao-configmap
+  namespace: ptg
+data:
+  FLYWAY_BASELINEVERSION: '202402291330'
+  FLYWAY_URL: jdbc:sqlserver://SRJDBCORPP2.tbg.biz;databaseName=ptg
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ptg-flyway-operacao-secret
+  namespace: ptg
+type: Opaque
+data:
+  FLYWAY_PASSWORD: cHRnX2gwbTBsMGcxIw==
+  FLYWAY_USER: YXBwX3B0Zw==

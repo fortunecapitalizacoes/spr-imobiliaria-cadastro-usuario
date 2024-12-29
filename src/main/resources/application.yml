@@ -1,0 +1,72 @@
+info:
+  app:
+    name: cadastro-usuario
+    description: cadastro-usuario
+    version: ${BUILD_ID:1.0.0}
+
+grpc:
+  server:
+    port: ${PTG_NOMINACAO_GRPC_SERVER_PORT:9093}
+    security:
+      enabled: false
+
+ptg:
+   env:
+      ambiente: ${AMBIENTE:Desenvolvimento}
+
+spring:
+  application:
+    name: cadastro-usuaio
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: root
+      password: c@d@str0Usuario
+      database: authsec
+
+server:
+  port: ${PTG_NOMINACAO_SERVER_PORT:8011}
+  http2:
+    enabled: true
+#  servlet:
+#    context-path: /nominacao2.0
+
+host-grpc: 
+   nominacaov2-host: ${PTG_NOMINACAO_GRPC_HOST:localhost:9093}
+   nominacaov2-acl-host: ${PTG_NOMINACAO_ACL_GRPC_HOST:localhost:9092}   
+   webhook: ${WEBHOOK:local}
+
+webhook: ${WEBHOOK:local}
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: false
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: info,health,metrics
+  health:
+    db:
+      enabled: true
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true
+    mail:
+      enabled: false
+    ping:
+      enabled: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
